@@ -51,6 +51,17 @@
 <b>Stuck in a game? Get a hint, not a spoiler.</b> — Send a screenshot, get 3 levels of progressive hints. Works with any game. Never spoils the story. <i>Scored 164/190.</i> Input: "video games."
 </td>
 </tr>
+<tr>
+<td width="120" align="center">
+<a href="https://github.com/KeWang0622/balltalk">
+<img src="https://img.shields.io/github/stars/KeWang0622/balltalk?style=flat-square&color=e85d04&labelColor=1d1160" alt="Stars"/><br/>
+<b>balltalk</b>
+</a>
+</td>
+<td>
+<b>Your AI basketball brain.</b> — Real NBA stats, player comparisons, fantasy advice, scouting reports, play breakdowns. Talks ball like someone who watches games. <i>Scored 163/190.</i> Input: "basketball."
+</td>
+</tr>
 </table>
 
 <details>
