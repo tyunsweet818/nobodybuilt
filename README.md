@@ -129,8 +129,8 @@ You say "cooking"
 └──────────────────────────┬──────────────────────────────────┘
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  SHIP     "Where to launch?" → Twitter, Reddit, HN, GitHub  │
-│           Generates ready-to-post content for each platform  │
+│  SHIP     "Where to launch?" → GitHub, marketplaces,         │
+│           Twitter, Reddit, HN — with ready-to-post content   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -148,6 +148,7 @@ nobodybuilt presents top ideas with scores, evidence, and the "share moment" —
 | **Viral README** | Hook-first, one-command install, 3 usage examples, "why this exists" |
 | **Launch strategy** | Draft posts for Reddit/HN/X, directory submissions, timing advice |
 | **Ready-to-post content** | Pick Twitter, Reddit, HN, or GitHub — get copy-paste launch content |
+| **Marketplace publishing** | Walks you through publishing to skills.sh, ClawHub, Smithery, Skills Directory, awesome-lists |
 
 ## Scoring System
 
@@ -191,6 +192,24 @@ Ideas get killed before you see them:
 | "Requires behavior change" | New daily habits almost always fail |
 | "Needs large user base" | Network effects impossible solo |
 | "Too broad to be catchy" | "Productivity toolkit" = nothing |
+
+## Publish Everywhere
+
+After building your project, nobodybuilt walks you through publishing to every major skill marketplace:
+
+| Platform | Method | When |
+|----------|--------|------|
+| **GitHub** | Creates repo, pushes code, sets topics | Immediately |
+| **skills.sh** | `npx skills add owner/repo` — auto-listed | Immediately |
+| **ClawHub** | `clawhub publish` CLI command | Immediately |
+| **Skills Directory** | Web form submission | Immediately |
+| **Smithery** | Web or CLI deploy | Immediately |
+| **SkillsMP** | Auto-indexed from GitHub | After 2+ stars |
+| **awesome-claude-skills** | GitHub PR | After 10+ stars |
+| **awesome-agent-skills** | GitHub PR | After 10+ stars |
+| **awesome-claude-code** | GitHub Issue form | After traction |
+
+It tells you which platforms you can hit NOW and which to revisit after gaining stars.
 
 ## How Is This Different?
 

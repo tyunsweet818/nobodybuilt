@@ -172,17 +172,37 @@ Generate ALL files for a working v1. Not stubs. Runnable.
 After building, ask: **"Ready to ship? Pick where:"**
 
 ```
-1. GitHub — create repo, push code, set topics
-2. Twitter/X — viral tweet thread (ready to copy-paste)
-3. Reddit — posts for best subreddits (ready to copy-paste)
-4. Hacker News — Show HN post (ready to copy-paste)
-5. All of the above
-6. Skip — keep files local
+1. GitHub       — create repo, push code, set topics
+2. Marketplaces — publish to skills.sh, ClawHub, Skills Directory, Smithery, and more
+3. Twitter/X    — viral tweet thread (ready to copy-paste)
+4. Reddit       — posts for best subreddits (ready to copy-paste)
+5. Hacker News  — Show HN post (ready to copy-paste)
+6. All of the above
+7. Skip         — keep files local
 ```
 
-Generate ready-to-post content for each platform the user picks. All content in one go so they can launch everywhere simultaneously.
+Generate ready-to-post content for each platform the user picks. All content in one go.
 
-For GitHub: offer to create the repo, push code, set description and topics using git/gh commands.
+**GitHub:** Offer to create the repo, push code, set description and topics using git/gh commands.
+
+**Marketplaces:** See [references/MARKETPLACES.md](references/MARKETPLACES.md) for the full guide. Walk the user through publishing step by step:
+
+Immediate (no approval needed):
+- **skills.sh** — Tell user to share install command: `npx skills add <owner>/<repo>`. Auto-listed once people install.
+- **ClawHub** — Run: `npm i -g clawhub && clawhub publish ./ --version 1.0.0` (needs GitHub auth, account >= 1 week old)
+- **Skills Directory** — Submit at https://www.skillsdirectory.com/submit (GitHub sign-in)
+- **SkillsLLM** — Submit at https://skillsllm.com/submit
+- **Smithery** — Submit at https://smithery.ai/new or run: `npx @anthropic-ai/smithery deploy .`
+
+After 2+ stars:
+- **SkillsMP** — Auto-indexed from GitHub (needs >= 2 stars)
+
+After 10+ stars:
+- **awesome-claude-skills** — PR to github.com/travisvn/awesome-claude-skills (>= 10 stars required)
+- **awesome-agent-skills** — PR to github.com/VoltAgent/awesome-agent-skills (needs real usage)
+- **awesome-claude-code** — Issue form at github.com/hesreallyhim/awesome-claude-code (human-submitted only)
+
+Tell the user which ones they can do NOW and which to come back to after gaining traction. Offer to run CLI commands for them where possible.
 
 ## Phase 6: Iterate
 
