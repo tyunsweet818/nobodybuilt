@@ -40,6 +40,17 @@
 <b>Should I slab this Pokemon card?</b> — AI skill that calculates grading ROI. Looks up raw vs graded prices, factors in costs, gives a SLAB IT / SKIP IT verdict. <i>Scored 162/190.</i> Input was one word: "Pokemon."
 </td>
 </tr>
+<tr>
+<td width="120" align="center">
+<a href="https://github.com/KeWang0622/hintme">
+<img src="https://img.shields.io/github/stars/KeWang0622/hintme?style=flat-square&color=00ff88&labelColor=0d1117" alt="Stars"/><br/>
+<b>hintme</b>
+</a>
+</td>
+<td>
+<b>Stuck in a game? Get a hint, not a spoiler.</b> — Send a screenshot, get 3 levels of progressive hints. Works with any game. Never spoils the story. <i>Scored 164/190.</i> Input: "video games."
+</td>
+</tr>
 </table>
 
 <details>
