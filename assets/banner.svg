@@ -12,31 +12,20 @@
       <stop offset="75%" style="stop-color:#ff4757"/>
       <stop offset="100%" style="stop-color:#ff6b6b"/>
     </linearGradient>
-    <linearGradient id="textglow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#fff"/>
-      <stop offset="100%" style="stop-color:#f0f0f0"/>
-    </linearGradient>
-    <filter id="blur1">
-      <feGaussianBlur stdDeviation="40"/>
-    </filter>
-    <filter id="blur2">
-      <feGaussianBlur stdDeviation="20"/>
-    </filter>
-    <filter id="blur3">
-      <feGaussianBlur stdDeviation="2"/>
-    </filter>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
-    </filter>
   </defs>
 
   <!-- Background -->
   <rect width="1280" height="640" fill="url(#bg)"/>
 
-  <!-- Ambient glow orbs -->
-  <circle cx="200" cy="300" r="200" fill="#ff6b6b" opacity="0.08" filter="url(#blur1)"/>
-  <circle cx="1080" cy="340" r="250" fill="#ffa502" opacity="0.06" filter="url(#blur1)"/>
-  <circle cx="640" cy="500" r="180" fill="#ff4757" opacity="0.05" filter="url(#blur1)"/>
+  <!-- Ambient glow orbs (solid radial circles, no filter needed) -->
+  <circle cx="200" cy="300" r="280" fill="#ff6b6b" opacity="0.04"/>
+  <circle cx="200" cy="300" r="200" fill="#ff6b6b" opacity="0.03"/>
+  <circle cx="200" cy="300" r="120" fill="#ff6b6b" opacity="0.03"/>
+  <circle cx="1080" cy="340" r="320" fill="#ffa502" opacity="0.03"/>
+  <circle cx="1080" cy="340" r="220" fill="#ffa502" opacity="0.03"/>
+  <circle cx="1080" cy="340" r="140" fill="#ffa502" opacity="0.02"/>
+  <circle cx="640" cy="520" r="250" fill="#ff4757" opacity="0.03"/>
+  <circle cx="640" cy="520" r="160" fill="#ff4757" opacity="0.02"/>
 
   <!-- Grid lines (subtle) -->
   <g opacity="0.04" stroke="#fff" stroke-width="1">
@@ -49,7 +38,7 @@
   </g>
 
   <!-- Decorative dots -->
-  <g opacity="0.15">
+  <g opacity="0.2">
     <circle cx="180" cy="120" r="3" fill="#ff6b6b"/>
     <circle cx="350" cy="80" r="2" fill="#ffa502"/>
     <circle cx="520" cy="150" r="2.5" fill="#ff6348"/>
@@ -62,54 +51,52 @@
     <circle cx="1050" cy="510" r="2" fill="#ffa502"/>
   </g>
 
-  <!-- "nobody" text (large, muted) -->
-  <text x="640" y="260" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="120" font-weight="900" letter-spacing="-4" fill="#ffffff" opacity="0.95">
-    nobody
-  </text>
+  <!-- Accent lines (top-left corner) -->
+  <rect x="80" y="60" width="40" height="3" rx="1.5" fill="#ff6b6b" opacity="0.3"/>
+  <rect x="80" y="70" width="25" height="3" rx="1.5" fill="#ffa502" opacity="0.2"/>
 
-  <!-- "built" text (large, gradient accent) -->
-  <text x="640" y="380" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="120" font-weight="900" letter-spacing="-4" fill="url(#glow)">
-    built
-  </text>
+  <!-- Accent lines (bottom-right corner) -->
+  <rect x="1160" y="567" width="40" height="3" rx="1.5" fill="#ff4757" opacity="0.3"/>
+  <rect x="1175" y="577" width="25" height="3" rx="1.5" fill="#ffa502" opacity="0.2"/>
 
-  <!-- Underline accent -->
-  <rect x="390" y="400" width="500" height="4" rx="2" fill="url(#glow)" opacity="0.6"/>
+  <!-- "nobody" text -->
+  <text x="640" y="265" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="130" font-weight="900" letter-spacing="-5" fill="#ffffff" opacity="0.95">nobody</text>
+
+  <!-- "built" text with gradient -->
+  <text x="640" y="395" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="130" font-weight="900" letter-spacing="-5" fill="url(#glow)">built</text>
+
+  <!-- Underline accent bar -->
+  <rect x="370" y="412" width="540" height="5" rx="2.5" fill="url(#glow)" opacity="0.5"/>
 
   <!-- Tagline -->
-  <text x="640" y="460" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="28" font-weight="400" fill="#ffffff" opacity="0.6" letter-spacing="2">
-    find what nobody has built yet
-  </text>
+  <text x="640" y="475" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="400" fill="#ffffff" opacity="0.5" letter-spacing="4">FIND WHAT NOBODY HAS BUILT YET</text>
 
-  <!-- Bottom badges row -->
-  <g transform="translate(640, 540)" text-anchor="middle">
-    <!-- Claude Code badge -->
-    <rect x="-340" y="-16" width="120" height="32" rx="6" fill="#ffffff" opacity="0.08"/>
-    <text x="-280" y="6" font-family="system-ui, sans-serif" font-size="13" fill="#ffffff" opacity="0.5" text-anchor="middle">Claude Code</text>
+  <!-- Bottom platform row -->
+  <g font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">
+    <rect x="295" y="530" width="110" height="30" rx="5" fill="#ffffff" opacity="0.06" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+    <text x="350" y="550" opacity="0.4">Claude Code</text>
 
-    <!-- Cursor badge -->
-    <rect x="-195" y="-16" width="90" height="32" rx="6" fill="#ffffff" opacity="0.08"/>
-    <text x="-150" y="6" font-family="system-ui, sans-serif" font-size="13" fill="#ffffff" opacity="0.5" text-anchor="middle">Cursor</text>
+    <rect x="420" y="530" width="80" height="30" rx="5" fill="#ffffff" opacity="0.06" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+    <text x="460" y="550" opacity="0.4">Cursor</text>
 
-    <!-- Codex badge -->
-    <rect x="-80" y="-16" width="80" height="32" rx="6" fill="#ffffff" opacity="0.08"/>
-    <text x="-40" y="6" font-family="system-ui, sans-serif" font-size="13" fill="#ffffff" opacity="0.5" text-anchor="middle">Codex</text>
+    <rect x="515" y="530" width="75" height="30" rx="5" fill="#ffffff" opacity="0.06" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+    <text x="552" y="550" opacity="0.4">Codex</text>
 
-    <!-- Gemini CLI badge -->
-    <rect x="25" y="-16" width="110" height="32" rx="6" fill="#ffffff" opacity="0.08"/>
-    <text x="80" y="6" font-family="system-ui, sans-serif" font-size="13" fill="#ffffff" opacity="0.5" text-anchor="middle">Gemini CLI</text>
+    <rect x="605" y="530" width="100" height="30" rx="5" fill="#ffffff" opacity="0.06" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+    <text x="655" y="550" opacity="0.4">Gemini CLI</text>
 
-    <!-- OpenClaw badge -->
-    <rect x="160" y="-16" width="110" height="32" rx="6" fill="#ffffff" opacity="0.08"/>
-    <text x="215" y="6" font-family="system-ui, sans-serif" font-size="13" fill="#ffffff" opacity="0.5" text-anchor="middle">OpenClaw</text>
+    <rect x="720" y="530" width="100" height="30" rx="5" fill="#ffffff" opacity="0.06" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+    <text x="770" y="550" opacity="0.4">OpenClaw</text>
+
+    <rect x="835" y="530" width="90" height="30" rx="5" fill="#ffffff" opacity="0.06" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+    <text x="880" y="550" opacity="0.4">Windsurf</text>
   </g>
 
-  <!-- Corner accents -->
-  <rect x="0" y="0" width="4" height="60" fill="url(#glow)" opacity="0.3"/>
-  <rect x="0" y="0" width="60" height="4" fill="url(#glow)" opacity="0.3"/>
-  <rect x="1276" y="0" width="4" height="60" fill="url(#glow)" opacity="0.3"/>
-  <rect x="1220" y="0" width="60" height="4" fill="url(#glow)" opacity="0.3"/>
-  <rect x="0" y="580" width="4" height="60" fill="url(#glow)" opacity="0.3"/>
-  <rect x="0" y="636" width="60" height="4" fill="url(#glow)" opacity="0.3"/>
-  <rect x="1276" y="580" width="4" height="60" fill="url(#glow)" opacity="0.3"/>
-  <rect x="1220" y="636" width="60" height="4" fill="url(#glow)" opacity="0.3"/>
+  <!-- Corner brackets -->
+  <g opacity="0.25" stroke="url(#glow)" stroke-width="2" fill="none">
+    <polyline points="30,60 30,30 60,30"/>
+    <polyline points="1220,30 1250,30 1250,60"/>
+    <polyline points="30,580 30,610 60,610"/>
+    <polyline points="1220,610 1250,610 1250,580"/>
+  </g>
 </svg>

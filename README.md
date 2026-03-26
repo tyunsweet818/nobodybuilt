@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Claude_Code-supported-blue?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIgZmlsbD0id2hpdGUiLz48L3N2Zz4=" alt="Claude Code"/>
+  <img src="https://img.shields.io/badge/Claude_Code-supported-blue?style=flat-square" alt="Claude Code"/>
   <img src="https://img.shields.io/badge/Cursor-supported-blue?style=flat-square" alt="Cursor"/>
   <img src="https://img.shields.io/badge/Codex_CLI-supported-blue?style=flat-square" alt="Codex"/>
   <img src="https://img.shields.io/badge/Gemini_CLI-supported-blue?style=flat-square" alt="Gemini CLI"/>
@@ -24,20 +24,35 @@
 
 **nobodybuilt** is an AI agent skill that searches GitHub, Product Hunt, Reddit, npm, app stores, and AI tool directories to find **genuinely unexplored ideas** with viral potential — then generates a complete, publish-ready project with code, README, and launch strategy.
 
-> **"I can't believe nobody built this yet."** That's the reaction you want. This skill finds those ideas systematically.
+> **"I can't believe nobody built this yet."** — That's the reaction you want. This skill finds those ideas systematically.
 
-## Quick Start
+## Install
 
 ```bash
-# Claude Code / OpenClaw — one command, done
-cp SKILL.md ~/.claude/skills/nobodybuilt.md
-
-# Or curl it directly
-curl -sL https://raw.githubusercontent.com/KeWang0622/nobodybuilt/main/SKILL.md \
-  -o ~/.claude/skills/nobodybuilt.md
+# One-liner — clone and install
+git clone https://github.com/KeWang0622/nobodybuilt.git && cp nobodybuilt/SKILL.md ~/.claude/skills/nobodybuilt.md
 ```
 
-For other agents (Cursor, Codex, Gemini CLI, Windsurf, Aider), paste the SKILL.md content into your agent's skills or system prompt configuration.
+Or just grab the skill file:
+
+```bash
+# Copy SKILL.md into your agent's skills directory
+cp SKILL.md ~/.claude/skills/nobodybuilt.md
+```
+
+<details>
+<summary>Other agents (Cursor, Codex, Gemini CLI, Windsurf, Aider)</summary>
+
+| Agent | Install |
+|-------|---------|
+| **Cursor** | Copy SKILL.md to `.cursor/rules/nobodybuilt.md` |
+| **Codex CLI** | Add SKILL.md content to agent instructions |
+| **Gemini CLI** | Add SKILL.md content to agent instructions |
+| **Windsurf** | Add to Cascade rules |
+| **Aider** | Copy to `.aider/prompts/nobodybuilt.md` |
+| **Any AI chat** | Paste SKILL.md content as system prompt |
+
+</details>
 
 ## Usage
 
@@ -54,121 +69,122 @@ Use nobodybuilt. Find a tool for Pokemon fans that would blow up on Twitter.
 # Platform-specific
 Use nobodybuilt. Find me a Chrome extension idea that doesn't exist yet.
 
-# Iterate on results
+# Iterate
 Combine idea 1 and 3.  /  More like idea 2.  /  Same idea but as a CLI.
 ```
 
 ## How It Works
 
-Most "idea generators" just brainstorm. **nobodybuilt** validates.
+Most "idea generators" just brainstorm. **nobodybuilt** validates with real search data.
 
 ```
 You say "cooking"
         │
         ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PHASE 1: Creative Ideation                                 │
-│  5 frameworks: Mashup, Annoyance Autopsy, What-If,          │
-│  Audience Flip, Format Shift → 15-20 raw ideas              │
+│  PHASE 1  Creative Ideation                                 │
+│  Mashup, Annoyance Autopsy, What-If, Audience Flip,         │
+│  Format Shift → 15-20 raw idea fragments                    │
 └──────────────────────────┬──────────────────────────────────┘
-                           │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PHASE 2: Deep Research                                     │
+│  PHASE 2  Deep Research                                     │
 │  GitHub, Product Hunt, Reddit, npm, Chrome Web Store,       │
 │  AI directories, niche platforms → map what exists           │
 └──────────────────────────┬──────────────────────────────────┘
-                           │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PHASE 3: Validate & Score                                  │
-│  Demand validation (Reddit wishlists, manual workarounds)   │
-│  Anti-pattern filter (kills "dashboard for X", AI wrappers) │
-│  9-factor scoring with calibrated examples → Top 3          │
+│  PHASE 3  Validate & Score                                  │
+│  Demand proof (Reddit wishlists, manual workarounds)         │
+│  Anti-pattern filter → 9-factor scoring → Top 3             │
 └──────────────────────────┬──────────────────────────────────┘
-                           │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PHASE 4: Build the Winner                                  │
-│  Name (collision-checked) + code + viral README +           │
+│  PHASE 4  Build the Winner                                  │
+│  Name (collision-checked) + working code + viral README +   │
 │  launch strategy with draft posts for Reddit, HN, X         │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+## Example Output
+
+> ### 1. fridge-to-feast
+> *Snap your fridge, get a week of meals with a grocery list*
+>
+> **Pain** 8 · **Blue Ocean** 9 · **Need** 9 · **Instant** 7 · **Name** 8 · **Trend** 8 · **Share** 9 · **Moat** 5 · **Build** 6 = **168/190**
+>
+> **The insight:** Meal planning apps exist. Recipe apps exist. But nothing takes a fridge photo → generates a WEEK of meals → outputs a shopping list grouped by store aisle. The closest tools require manual ingredient input.
+>
+> **Evidence:** Searched GitHub for "fridge meal planner", "fridge to recipe", "photo grocery list" — found 3 repos, all abandoned (last commit 2+ years ago). Reddit r/mealprep has weekly "I wish there was an app that..." threads.
+>
+> **The share moment:** Side-by-side of messy fridge photo → beautiful weekly meal calendar with nutritional breakdown. Screenshot-bait.
+
+Then it generates the complete project — SKILL.md, README, code, and a launch plan with draft Reddit/HN/X posts.
 
 ## What You Get
 
 | Output | Details |
 |--------|---------|
-| **3 scored ideas** | Ranked by 9 viral factors (190-point scale), with search evidence proving the gap |
-| **Validated name** | Collision-checked against GitHub, npm, and web — confirmed available |
+| **3 scored ideas** | Ranked on 190-point scale, with search evidence proving the gap |
+| **Validated name** | Collision-checked on GitHub, npm, and web — confirmed available |
 | **Complete code** | Working v1 — SKILL.md, CLI, extension, or web app. Not stubs. Runnable. |
 | **Viral README** | Hook-first, one-command install, 3 usage examples, "why this exists" |
 | **Launch strategy** | Draft posts for Reddit/HN/X, directory submissions, timing advice |
 
 ## Scoring System
 
-Every idea is scored on 9 weighted factors. Each score has calibrated benchmarks — no guessing.
+Every idea is scored on 9 weighted factors with calibrated benchmarks.
 
-| Factor | Weight | 10 = | 1 = |
-|--------|--------|------|-----|
-| **Pain Point** | 3x | Reddit threads with 500+ upvotes about this problem | "Nice to have" nobody complains about |
-| **Blue Ocean** | 3x | Zero results on GitHub, PH, any directory | Multiple well-maintained tools with active communities |
-| **"I Need This"** | 3x | You stop researching to think "wait, I want this" | You have to explain why anyone would want it |
-| **Instant Value** | 2x | `npx tool` and it works. No config, no signup. | Needs accounts, API keys, database setup |
-| **Catchy Name** | 2x | The name IS the pitch ("Shazam", "Tinder") | Generic ("my-tool", "utils") |
+| Factor | Wt | 10 = | 1 = |
+|--------|----|------|-----|
+| **Pain Point** | 3x | Reddit threads with 500+ upvotes complaining | "Nice to have" nobody mentions |
+| **Blue Ocean** | 3x | Zero results on GitHub, PH, anywhere | Multiple well-maintained tools |
+| **"I Need This"** | 3x | You stop and think "wait, I want this" | You have to explain why anyone would |
+| **Instant Value** | 2x | `npx tool` and it works. No config. | Needs API keys, database, setup wizard |
+| **Catchy Name** | 2x | Name IS the pitch ("Shazam") | Generic ("my-tool") |
 | **Trend Alignment** | 2x | Enabled by something launched this month | Could've been built 5 years ago |
-| **Shareability** | 2x | Output so good people MUST screenshot it | Correct but boring output nobody shares |
-| **Moat** | 1x | Network effects, unique dataset, "standard" status | Pure code anyone could clone in a weekend |
-| **Feasibility** | 1x | Single file, no deps, 2-hour build | Needs infra, multiple services, complex integrations |
+| **Shareability** | 2x | Output so good people MUST screenshot it | Correct but boring |
+| **Moat** | 1x | Network effects, unique data, "standard" status | Anyone could clone it |
+| **Feasibility** | 1x | Single file, 2-hour build | Needs infra and multiple services |
 
-**Max score: 190.** Top 3 presented with evidence.
-
-## Anti-Patterns Filter
-
-Ideas get killed before you see them if they match these traps:
-
-| Anti-Pattern | Why It Dies |
-|-------------|-------------|
-| "Dashboard for X" | No wow moment, requires integration, competes with everything |
-| "AI wrapper, no angle" | Everyone has this idea. Must add unique data/workflow/output. |
-| "Yet another todo app" | 10,000+ exist. Need genuinely novel angle. |
-| "Requires behavior change" | Tools needing new daily habits almost always fail |
-| "Needs large user base" | Network effects impossible to bootstrap solo |
-| "Too broad to be catchy" | "Productivity toolkit" = nothing. "Git history to resume" = shareable. |
-
-## Example Output
-
-```
-### 1. fridge-to-feast
-> Snap your fridge, get a week of meals with a grocery list
-
-Scores: Pain 8 x Blue Ocean 9 x Need 9 x Instant 7 x Name 8 x Trend 8 x Share 9 x Moat 5 x Build 6 = 168/190
-
-The insight: Meal planning apps exist. Recipe apps exist. But nothing takes
-a fridge photo → generates a WEEK of meals → outputs a shopping list grouped
-by store aisle. The closest tools require manual ingredient input.
-
-Evidence: Searched GitHub for "fridge meal planner", "fridge to recipe",
-"photo grocery list" — found 3 repos, all abandoned (last commit 2+ years ago).
-Reddit r/mealprep has weekly "I wish there was an app that..." threads.
-
-The share moment: Side-by-side of messy fridge photo → beautiful weekly meal
-calendar with nutritional breakdown. Screenshot-bait.
-```
-
-Then it generates the complete project: SKILL.md, README, code, and a launch plan with draft Reddit/HN/X posts.
+**Max: 190.** Top 3 presented with evidence.
 
 ## Creative Ideation Methods
 
-Not just gap-searching — active idea generation using 5 proven frameworks:
+Not just gap-searching — active idea generation:
 
-| Method | How It Works | Example |
-|--------|-------------|---------|
-| **Mashup** | Combine two unrelated domains | Duolingo = language + gaming |
-| **Annoyance Autopsy** | List 10 specific frustrations, build the fix | "I hate manually copying recipe ingredients to my shopping list" |
-| **"What If"** | "What if [impossible thing] was [simple input]?" | "What if you could mass-unfollow inactive Twitter accounts in one click?" |
-| **Audience Flip** | Developer tool → make it for non-devs | GitHub contribution graph → but for gym workouts |
-| **Format Shift** | Web app → CLI / paid SaaS → open source single-file | Canva → but as a CLI for developers |
+| Method | Formula | Example |
+|--------|---------|---------|
+| **Mashup** | Domain A × Domain B | Duolingo = language + gaming |
+| **Annoyance Autopsy** | List frustrations → build the fix | "I hate copying recipe ingredients to my shopping list" |
+| **"What If"** | Impossible thing + simple input | "Mass-unfollow inactive Twitter accounts in one click" |
+| **Audience Flip** | Dev tool → make it for non-devs | GitHub contribution graph → but for gym workouts |
+| **Format Shift** | Web app → CLI / SaaS → open source | Canva → but as a CLI for developers |
+
+## Anti-Pattern Filter
+
+Ideas get killed before you see them:
+
+| Trap | Why |
+|------|-----|
+| "Dashboard for X" | No wow moment, competes with everything |
+| "AI wrapper, no angle" | Everyone has this idea already |
+| "Yet another todo app" | 10,000+ exist |
+| "Requires behavior change" | New daily habits almost always fail |
+| "Needs large user base" | Network effects impossible solo |
+| "Too broad to be catchy" | "Productivity toolkit" = nothing |
+
+## How Is This Different?
+
+| | **nobodybuilt** | Typical idea generators | Skill factories |
+|---|---|---|---|
+| **Finds ideas** | Searches 8+ platforms for real gaps | Brainstorms from training data | N/A — you bring the idea |
+| **Validates demand** | Reddit wishlists, manual workarounds, search evidence | No validation | No validation |
+| **Kills bad ideas** | Anti-pattern filter + calibrated scoring | Everything sounds good | N/A |
+| **Checks name collisions** | GitHub + npm + web search | No | No |
+| **Generates code** | Complete runnable v1 | Maybe a description | Template-based |
+| **Launch strategy** | Draft posts, timing, directory targets | No | No |
+| **Creative frameworks** | 5 ideation methods (mashup, what-if, etc.) | Random brainstorm | N/A |
 
 ## Iteration
 
@@ -228,36 +244,13 @@ Don't like the results? Keep going:
 
 There are millions of repos on GitHub. Most are clones. Meanwhile, entire domains have **zero good tools** and massive unmet demand sitting in Reddit threads and unanswered tweets.
 
-The most successful tools follow the same pattern: **be first in a real category, not 50th in a crowded one.** This skill systematically finds those categories before anyone else does.
-
-## Compatible With
-
-Any AI coding agent that supports skill/instruction files:
-
-| Agent | Install Method |
-|-------|---------------|
-| **Claude Code** | `cp SKILL.md ~/.claude/skills/nobodybuilt.md` |
-| **OpenClaw** | `cp SKILL.md ~/.claude/skills/nobodybuilt.md` |
-| **Cursor** | Add to `.cursor/rules/` or paste into system prompt |
-| **Codex CLI** | Add to agent instructions |
-| **Gemini CLI** | Add to agent instructions |
-| **Windsurf** | Add to Cascade rules |
-| **Aider** | Add to `.aider/prompts/` |
-| **Any AI chat** | Paste SKILL.md content as system prompt |
-
-## Star History
-
-<p align="center">
-  <a href="https://star-history.com/#KeWang0622/nobodybuilt&Date">
-    <img src="https://api.star-history.com/svg?repos=KeWang0622/nobodybuilt&type=Date" alt="Star History Chart" width="600"/>
-  </a>
-</p>
+The most successful tools follow the same pattern: **be first in a real category, not 50th in a crowded one.** This skill finds those categories before anyone else does.
 
 ## Contributing
 
-Found an idea that nobodybuilt helped you discover? Open a PR to add it to the [Hall of Fame](https://github.com/KeWang0622/nobodybuilt/issues/1)!
+Found a tool idea using nobodybuilt? [Share it in the showcase](https://github.com/KeWang0622/nobodybuilt/issues/new?template=idea-showcase.md)!
 
-Ideas for improving the skill itself are welcome — open an issue or PR.
+Ideas for improving the skill: open an issue or PR.
 
 ## License
 
@@ -266,5 +259,5 @@ Ideas for improving the skill itself are welcome — open an issue or PR.
 ---
 
 <p align="center">
-  <b>If this helped you find something worth building, <a href="https://github.com/KeWang0622/nobodybuilt">star the repo</a></b> so others can find it too.
+  <b>If this helped you find something worth building, <a href="https://github.com/KeWang0622/nobodybuilt">give it a star</a></b> so others find it too.
 </p>
