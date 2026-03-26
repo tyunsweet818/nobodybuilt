@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ln:*)",
+      "Bash(gh auth:*)",
+      "Read(//home/ke/**)",
+      "Bash(zip -r skills-maker.zip skills-maker/ -x \"skills-maker/.git/*\")"
+    ]
+  }
+}
