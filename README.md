@@ -26,6 +26,42 @@
 
 > **"I can't believe nobody built this yet."** — That's the reaction you want. This skill finds those ideas systematically.
 
+## Built with nobodybuilt
+
+<table>
+<tr>
+<td width="120" align="center">
+<a href="https://github.com/KeWang0622/shouldislab">
+<img src="https://img.shields.io/github/stars/KeWang0622/shouldislab?style=flat-square&color=ffcb05&labelColor=2a75bb" alt="Stars"/><br/>
+<b>shouldislab</b>
+</a>
+</td>
+<td>
+<b>Should I slab this Pokemon card?</b> — AI skill that calculates grading ROI. Looks up raw vs graded prices, factors in costs, gives a SLAB IT / SKIP IT verdict. <i>Scored 162/190.</i> Input was one word: "Pokemon."
+</td>
+</tr>
+</table>
+
+<details>
+<summary><b>See the full discovery process</b></summary>
+
+> ### 1. shouldislab
+> *Should I slab this Pokemon card? Calculates grading ROI with real price data.*
+>
+> **Pain** 9 · **Blue Ocean** 8 · **Need** 9 · **Instant** 7 · **Name** 8 · **Trend** 9 · **Share** 9 · **Moat** 6 · **Build** 5 = **162/190**
+>
+> **The insight:** "Should I grade this?" is the #1 financial decision Pokemon collectors agonize over. Pre-grading apps tell you "PSA 9" but don't answer "is it worth the $35 fee?" No AI agent skill for Pokemon cards exists on skills.sh or ClawHub — zero results.
+>
+> **Evidence:** Searched GitHub for `"SKILL.md" pokemon`, `"claude skill" pokemon card` — nothing. Elite Fourum threads on grading ROI uncertainty. Reddit r/PokemonTCG has daily "should I grade this?" posts.
+>
+> **The share moment:** ROI table showing "Your Charizard ex: PSA 10 +50% ROI, PSA 9 -19% ROI. **Verdict: SKIP IT.**"
+
+nobodybuilt generated the complete project — [SKILL.md](https://github.com/KeWang0622/shouldislab/blob/main/SKILL.md), [README](https://github.com/KeWang0622/shouldislab), banner, and launch strategy — from one word of input.
+
+</details>
+
+---
+
 ## Install
 
 ```bash
@@ -98,20 +134,9 @@ You say "cooking"
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## Example Output
+## What the Output Looks Like
 
-> ### 1. fridge-to-feast
-> *Snap your fridge, get a week of meals with a grocery list*
->
-> **Pain** 8 · **Blue Ocean** 9 · **Need** 9 · **Instant** 7 · **Name** 8 · **Trend** 8 · **Share** 9 · **Moat** 5 · **Build** 6 = **168/190**
->
-> **The insight:** Meal planning apps exist. Recipe apps exist. But nothing takes a fridge photo → generates a WEEK of meals → outputs a shopping list grouped by store aisle. The closest tools require manual ingredient input.
->
-> **Evidence:** Searched GitHub for "fridge meal planner", "fridge to recipe", "photo grocery list" — found 3 repos, all abandoned (last commit 2+ years ago). Reddit r/mealprep has weekly "I wish there was an app that..." threads.
->
-> **The share moment:** Side-by-side of messy fridge photo → beautiful weekly meal calendar with nutritional breakdown. Screenshot-bait.
-
-Then it generates the complete project — SKILL.md, README, code, and a launch plan with draft Reddit/HN/X posts.
+nobodybuilt presents top ideas with scores, evidence, and the "share moment" — then builds the winner into a complete project. See the [shouldislab example above](#built-with-nobodybuilt) for a real end-to-end run.
 
 ## What You Get
 
