@@ -62,6 +62,17 @@
 <b>Your AI basketball brain.</b> — Real NBA stats, player comparisons, fantasy advice, scouting reports, play breakdowns. Talks ball like someone who watches games. <i>Scored 163/190.</i> Input: "basketball."
 </td>
 </tr>
+<tr>
+<td width="120" align="center">
+<a href="https://github.com/KeWang0622/tftcoach">
+<img src="https://img.shields.io/github/stars/KeWang0622/tftcoach?style=flat-square&color=c89b3c&labelColor=0a0e1a" alt="Stars"/><br/>
+<b>tftcoach</b>
+</a>
+</td>
+<td>
+<b>AI TFT coach that reads your board and makes the call.</b> — Comps, items, augments, economy, pivoting, positioning. Not tier lists — personalized coaching for YOUR game state. <i>Scored 166/190.</i> Input: "TFT."
+</td>
+</tr>
 </table>
 
 <details>
