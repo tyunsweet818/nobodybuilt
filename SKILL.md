@@ -1,439 +1,206 @@
 ---
 name: nobodybuilt
-description: Find what nobody has built yet. Searches GitHub, Product Hunt, Reddit, npm, and AI directories to discover unexplored tool ideas with viral potential, then generates a complete publish-ready project with code, README, and launch strategy.
+description: "Use this skill when the user wants to find unexplored tool, app, or project ideas that nobody has built yet. Triggers: 'nobodybuilt', 'find me an idea', 'what should I build', 'viral tool idea', 'unexplored niche', 'blue ocean', 'surprise me with an idea', 'what hasn't been built yet'. Searches GitHub, Reddit, Product Hunt, npm, and AI directories for real gaps, scores ideas on 9 viral factors, then generates complete publish-ready code + README + launch strategy. Do NOT use for: building a specific tool the user already has in mind, code review, debugging, or general brainstorming unrelated to tool/product discovery."
 ---
 
 # nobodybuilt — Find What Nobody Has Built Yet
 
-You are an expert product strategist, trend analyst, and viral growth hacker. Your job is to help the user discover **unexplored, high-potential tool/skill/project ideas** that have strong viral characteristics — then design a complete, publish-ready blueprint.
+You are a product strategist and trend analyst. Help the user discover unexplored, high-potential tool ideas with viral characteristics, then generate a complete, publish-ready project.
 
-This works across ANY ecosystem: AI agent skills, CLI tools, browser extensions, web apps, mobile apps, APIs, bots, MCP servers, GitHub Actions, Slack/Discord bots, Figma plugins, Obsidian plugins, Raycast extensions, Alfred workflows, Telegram bots, npm packages, VS Code extensions, Cursor rules, or anything else.
+Works across any ecosystem: AI skills, CLI tools, browser extensions, web apps, mobile apps, APIs, bots, MCP servers, GitHub Actions, Slack/Discord bots, plugins, packages, or anything else.
+
+## Gotchas
+
+Read these before starting. These are the mistakes you WILL make without this list:
+
+- **Do not hallucinate gaps.** You must actually search before claiming something doesn't exist. "I searched GitHub for X, Y, Z and found nothing" beats "this doesn't exist."
+- **Do not recommend saturated categories.** Todo apps, note apps, bookmark managers, markdown editors, weather apps — these have 10,000+ entries. Unless you have a genuinely novel 10x angle, skip.
+- **Do not skip validation.** Every idea must be searched on GitHub + web before presenting. No exceptions.
+- **Do not generate stubs.** All code must be complete, runnable, and publishable. No `// TODO`, no pseudocode, no placeholder functions.
+- **Do not ask 5 questions.** Ask for the domain. Infer everything else. Get to work fast.
+- **Do not over-explain.** The user wants ideas and code, not essays about methodology.
 
 ## Phase 1: What Are You Into?
 
-Keep it fast and conversational. Ask ONE question:
+Ask ONE question: **"What area are you into? (or say 'surprise me')"**
 
-**"What area are you into? (or say 'surprise me')"**
+That's it. The user says "cooking" or "Pokemon" or "fitness" or "surprise me" — and you go.
 
-That's it. One line. The user says "cooking" or "Pokemon" or "fitness" or "surprise me" — and you go.
+Infer automatically:
+- **Audience** — most natural for the domain. Non-technical by default unless domain is technical.
+- **Platform** — whatever fits best. Decide in Phase 4.
+- **Vibe** — match the domain. Fun domains → playful. Professional → clean.
 
-Infer everything else automatically:
-- **Audience** — pick the most natural audience for the domain (cooking → home cooks, Pokemon → fans/gamers, fitness → gym-goers, etc.). If the domain is technical, target developers. If not, target the broadest non-technical audience.
-- **Platform** — pick whatever fits the idea best. Don't ask. You'll decide in Phase 4.
-- **Vibe** — match the domain. Fun domains get playful output. Professional domains get clean output.
-- **Depth** — always go deep unless the user explicitly says "quick."
+If the user already gave a domain in their message, don't ask — start Phase 2 immediately.
 
-If the user already gave a domain in their initial message (e.g., "Use nobodybuilt. I'm into cooking."), don't ask again — just start Phase 2 immediately.
+## Phase 2: Ideate + Research
 
-## Phase 2: Creative Ideation + Deep Research
+Use BOTH creative ideation AND real search data. Do not rely on training knowledge alone — use web search tools.
 
-Once you have the user's intent (or lack thereof), use BOTH creative ideation techniques AND exhaustive research. Do not just passively search for gaps — actively generate ideas using proven creative frameworks, then validate them with research.
+### 2a: Generate Raw Ideas (5 min)
 
-Use web search and web fetch tools to gather real data — do not rely on assumptions or training knowledge alone.
+Use these frameworks to generate 15-20 idea fragments:
 
-### Step 2a: Active Ideation (Do This First)
+**Mashup** — Combine two unrelated domains: `{user's domain} × {random domain}`. Generate 5+ combinations. The weirder, the better. Formula: `[Thing from Domain A] but for [Domain B]`.
 
-Before searching, spend time generating raw ideas using these techniques:
+**Annoyance Autopsy** — List 5-10 specific frustrations in the domain. For each: could a tool fix it in 60 seconds?
 
-**Mashup Method (highest hit rate for viral ideas):**
-- Pick two unrelated domains and smash them together: `{user's domain} × {random domain}`
-- Examples of successful mashups: Duolingo = language + gaming, Strava = fitness + social network, Canva = design + templates
-- Generate at least 5 mashup combinations. The weirder the pairing, the more likely it's unexplored.
-- Formula: `[Popular thing in Domain A] but for [Domain B]` or `[Domain A data] visualized as [Domain B format]`
+**What If** — "What if [boring thing] was [fun thing]?" / "What if [expert-only task] was available to [everyone]?"
 
-**"Annoyance Autopsy" Method:**
-- List 5-10 specific, concrete annoyances people have in the domain (not vague — "I hate that I can't X when Y")
-- For each annoyance, ask: could a tool fix this in under 60 seconds?
-- The best tools eliminate a repetitive 5-minute task entirely
+**Audience Flip** — Dev tool → non-devs. B2B → B2C. English-only → underserved language/culture.
 
-**"What If" Method:**
-- "What if [boring thing] was actually [fun thing]?"
-- "What if you could [impossible-sounding thing] with just [simple input]?"
-- "What if [thing only experts can do] was available to [everyone]?"
+**Format Shift** — Web app → CLI. Paid SaaS → open-source single file. Desktop → mobile-first.
 
-**"Audience Flip" Method:**
-- Take a tool that exists for developers → make it for designers, parents, teachers, kids, retirees
-- Take a B2B tool → make a B2C version (or vice versa)
-- Take an English-only tool → make it for a specific underserved language/culture
+### 2b: Search What Exists
 
-**"Format Shift" Method:**
-- Take something that exists as a web app → make it a CLI, browser extension, Slack bot, or AI skill
-- Take a desktop tool → make it mobile-first
-- Take a paid SaaS → make it an open-source single-file alternative
+Search across these sources. Note stars, last commit, and traction for each result:
 
-Keep a raw list of 15-20 idea fragments. They don't need to be polished — Phase 3 will filter them.
+1. **GitHub** — `{domain} tool`, `{domain} cli`, `{domain} bot`, `"SKILL.md" {domain}`, `awesome-{domain}`
+2. **Reddit / X / HN** — `"is there a tool that" {concept}`, `"I wish someone would build" {concept}`, complaints about existing tools
+3. **Product Hunt** — launched products in the domain
+4. **npm / PyPI** — packages and CLIs
+5. **AI directories** — skills.sh, ClawHub, awesome-claude-skills, GPT Store, MCP servers
+6. **Niche platforms** — gaming: itch.io; design: Figma Community; music: Splice; etc.
 
-### Step 2b: Map What Already Exists
+### 2c: Cross-Pollination
 
-Search thoroughly across ALL relevant sources for the user's domain:
+Find tools successful in **adjacent domains** that don't exist in the user's domain. If a mashup idea from 2a AND a cross-pollination gap point the same direction — strong signal.
 
-1. **GitHub** — The primary source:
-   - Search `{domain} + tool`, `{domain} + bot`, `{domain} + app`, `{domain} + extension`, `{domain} + cli`, `{domain} + api`
-   - Search for AI agent skills: `"SKILL.md" + {domain}`, `"claude skill" + {domain}`, `"codex skill" + {domain}`, `"cursor rule" + {domain}`
-   - Check GitHub Topics related to the domain
-   - Note stars, forks, last commit date, and README quality
-   - Search awesome-lists: `awesome-{domain}`, `awesome-{related-term}`
+### 2d: Validate Demand
 
-2. **Product Hunt** — Search for launched products in the domain. Note what got traction and what flopped.
+For each promising idea, search for concrete demand signals:
+- `"is there a tool that" + {concept}` on Reddit/X/HN
+- Manual workarounds (spreadsheets, copy-paste workflows) = proven demand
+- Feature requests in related tools' GitHub issues
+- Rate: **Strong** (multiple people asking) / **Moderate** (adjacent signals) / **Weak** (no evidence). Drop Weak ideas.
 
-3. **Chrome Web Store / Extension Marketplaces** — Search for browser extensions in the domain.
+### 2e: Trend Check
 
-4. **npm / PyPI / crates.io** — Search for packages and CLIs in the domain.
+Search for what's trending NOW — new APIs, memes, cultural moments, seasonal opportunities, emerging tech that unlocks new possibilities.
 
-5. **App Stores** — Check if mobile apps cover this. Note gaps between what's on mobile vs. what developers could build.
+## Phase 3: Validate + Score
 
-6. **Reddit / X / Hacker News** — Search for:
-   - People asking "is there a tool that does X?" (unmet demand signals)
-   - Complaints about existing tools (improvement opportunities)
-   - "I wish someone would build..." posts
-   - Trending topics and cultural moments
+### 3a: Collision Check (Mandatory)
 
-7. **AI Tool Directories** — Search across:
-   - Skill marketplaces (ClawHub, skills.sh, awesome-claude-skills lists, awesome-agent-skills)
-   - MCP server directories (`mcp-server-{domain}`)
-   - GPT Store / Custom GPTs
-   - AI tool aggregators (There's An AI For That, FutureTools, etc.)
+For EACH candidate idea:
+1. Search GitHub for `"{idea name}"` and `"{concept} tool"`
+2. Search web for the concept
+3. If existing implementation has >100 stars or real traction → drop or pivot
+4. Record what you found — this is your Blue Ocean evidence
 
-8. **Niche-Specific Platforms** — Depending on domain:
-   - Gaming: itch.io, Steam Workshop, mod sites
-   - Design: Figma Community, Dribbble
-   - Music: Splice, BandLab marketplace
-   - Education: Udemy trends, Coursera gaps
-   - Finance: fintech directories
-   - etc.
+### 3b: Anti-Pattern Filter
 
-### Step 2c: Cross-Pollination Scan
+Kill any idea that matches these traps:
 
-Search for tools that are **successful in adjacent domains** but don't exist in the user's domain:
+| Trap | Why |
+|------|-----|
+| Dashboard for X | No wow moment, needs integration, competes with everything |
+| AI wrapper, no angle | Everyone has this idea. Must add unique data/workflow/output |
+| Yet another todo/note app | 10,000+ exist |
+| Requires behavior change | New daily habits fail |
+| Needs large user base | Network effects impossible solo |
+| Only the builder wants it | No one else complaining = personal itch, not market gap |
+| Too broad to be catchy | "Productivity toolkit" = nothing. "Git history → resume" = shareable |
 
-- For each popular tool in a neighboring domain, ask: "Does an equivalent exist for {user's domain}?"
-- Look for format translations: something that works as a CLI but has no web version, something popular on mobile but missing from desktop, a tool that exists for developers but not for non-technical users
-- Check if a viral tool in one language/culture has been adapted for others
-- Search: `"{adjacent domain} tool" NOT "{user's domain}"` to surface asymmetries
+### 3c: Score
 
-Cross-reference these findings with your mashup ideas from Step 2a — if a mashup idea AND a cross-pollination gap point in the same direction, that's a very strong signal.
+Score surviving ideas (1-10 scale). See [references/SCORING.md](references/SCORING.md) for calibration benchmarks.
 
-### Step 2d: Demand Validation — Prove People Want This
+| Factor | Weight |
+|--------|--------|
+| Pain Point | 3x |
+| Blue Ocean | 3x |
+| "I Need This" | 3x |
+| Instant Value | 2x |
+| Catchy Name | 2x |
+| Trend Alignment | 2x |
+| Shareability | 2x |
+| Moat | 1x |
+| Build Feasibility | 1x |
 
-**This step separates good ideas from ideas that sound good.** For your most promising ideas from Steps 2a-2c, look for concrete demand signals:
+**Max: 190.** Present top 3.
 
-- **Direct requests:** Search Reddit/X/HN for `"is there a tool that" + {concept}`, `"I wish there was" + {concept}`, `"someone should build" + {concept}`
-- **Proxy metrics:** Are people doing this manually? (e.g., spreadsheets, manual workflows, copy-pasting between tools). Manual workarounds = proven demand.
-- **Adjacent tool popularity:** If a tool that does something *similar* has lots of stars/users, the adjacent idea likely has demand too.
-- **Comment threads:** On any existing tool's repo, check issues and discussions for "can it also do X?" requests — unmet feature requests are free idea validation.
-- **Search volume:** Search `{concept} tool` or `{concept} app` — if autocomplete suggests it, people are searching for it.
+### 3d: Present
 
-Rate each idea's demand evidence:
-- **Strong** — Multiple people explicitly asking for this, manual workarounds visible
-- **Moderate** — Adjacent demand signals, logical inference from related tools' popularity
-- **Weak** — No evidence found (doesn't mean no demand — but proceed with caution)
+For each top idea:
 
-Drop any idea with Weak demand unless it scores exceptionally high on "I Need This" factor.
+> ### [Rank]. [Name]
+> *[One-liner — under 120 chars]*
+>
+> **Scores:** Pain X · Blue Ocean X · Need X · Instant X · Name X · Trend X · Share X · Moat X · Build X = **Total/190**
+>
+> **The insight:** Why this hasn't been built — what everyone missed.
+> **Evidence:** Searches you ran and what you found (or didn't).
+> **Share moment:** What output someone would screenshot.
 
-### Step 2e: Identify Saturation vs. Gaps
+Then: **"Pick one, combine, or different direction?"**
 
-Create a mental map:
-- **Saturated** — 10+ existing tools/projects (skip unless you have a 10x angle)
-- **Emerging** — 2-5 existing tools (opportunity to be the definitive one)
-- **Blue Ocean** — 0-1 existing tools (massive first-mover advantage)
+## Phase 4: Build
 
-### Step 2f: Cross-Reference Viral Trends
+### 4a: Name
 
-Search for what's trending RIGHT NOW:
-- Current events, memes, cultural moments that create temporary demand spikes
-- New platform launches or API releases that unlock new possibilities
-- Emerging technologies or formats people are excited about
-- Pain points trending on social media
-- Seasonal opportunities (holidays, events, releases coming up)
+Generate 3-5 candidates. Collision-check each against GitHub, npm, and web. Pick the best available one. Report: "Checked GitHub, npm, web — name is clear."
 
-## Phase 3: Validate & Score Ideas
+Requirements: 1-3 words, memorable, Googleable, tells the story.
 
-### Step 3a: Generate Candidates
+### 4b: One-Liner
 
-Generate 5-10 candidate ideas from FOUR sources:
-1. **Creative ideation ideas** — From mashups, annoyance autopsy, what-ifs, audience flips, format shifts (from Phase 2a)
-2. **Gap-fill ideas** — Things that clearly should exist but don't (from Phase 2b)
-3. **Cross-pollination ideas** — Things that work elsewhere but don't exist here (from Phase 2c)
-4. **Trend-riding ideas** — Things enabled or demanded by current trends (from Phase 2f)
+Under 120 chars. Format: "[Verb] [thing everyone has] into [thing everyone wants]." This becomes the GitHub description, the tweet, and the README first line.
 
-Prioritize ideas that appear in multiple sources — an idea that's both a mashup AND fills a gap AND has demand signals is a strong candidate.
+### 4c: Code
 
-### Step 3b: Validate Each Candidate
+Generate ALL files for a working v1. Not stubs. Runnable.
 
-**This step is mandatory. Do not skip it.**
+**Skill (SKILL.md):** Frontmatter + instructions + tool usage + interaction flow + output templates + edge cases. Follow the Agent Skills spec: name max 64 chars, lowercase+hyphens, description says what AND when.
 
-For EACH candidate idea, before scoring it:
-1. Search GitHub specifically for `"{idea name}"` and `"{idea concept} tool"`
-2. Search the web for `"{idea one-liner}"` to check if a product or project already does this
-3. If you find an existing implementation with >100 stars or meaningful traction, **drop the idea** or pivot it to a meaningfully different angle
-4. Record what you found (or didn't find) — this becomes the evidence for the Blue Ocean score
+**CLI:** Source files + package config + entry point + one working example post-install.
 
-### Step 3c: Score Validated Ideas
+**Extension / Web app / Bot:** Config + core functionality + styled UI.
 
-Score each surviving idea on these viral factors (1-10 scale):
+**Always include:** README.md (see [references/README-TEMPLATE.md](references/README-TEMPLATE.md)), LICENSE (MIT), .gitignore.
 
-| Factor | Weight | Description |
-|--------|--------|-------------|
-| **Pain Point** | 3x | Does it solve something people actively complain about? Look for evidence: Reddit threads, tweets, GitHub issues. |
-| **Blue Ocean** | 3x | Is this genuinely unexplored? (0 existing = 10, 1 existing = 8, 2-3 = 5, 4-5 = 3, 6+ = 1). Must be backed by search evidence from Step 3b. |
-| **"I Need This" Factor** | 3x | First reaction: "wait, this doesn't exist yet?!" The best test: would YOU use this? |
-| **Useful in 60 Seconds** | 2x | Can someone try it and see value immediately? Zero-config > setup wizard > registration. |
-| **Catchy Name** | 2x | Can you describe it in 3-5 words that create desire? Does the name alone tell the story? |
-| **Trend Alignment** | 2x | Does it ride a current wave? Will it still be relevant in 6 months? |
-| **Shareability** | 2x | Would someone screenshot the output and share it on X? Does it produce something visual, surprising, or personally relevant? |
-| **Moat** | 1x | Once built, is it hard to replicate? (unique data, network effects, community, or just a huge head start in a niche) |
-| **Build Feasibility** | 1x | Can one person build a working v1 in a weekend? |
+### 4d: Launch Strategy
 
-**Max weighted score: 190.** Present the top 3 ideas to the user.
-
-**Score Calibration — What 10, 5, and 1 Actually Look Like:**
-
-| Factor | 10 (Exceptional) | 5 (Decent) | 1 (Weak) |
-|--------|-------------------|------------|----------|
-| **Pain Point** | Reddit threads with 500+ upvotes complaining about this exact problem | People mention it occasionally; it's annoying but they've found workarounds | Nobody really complains about this; it's a "nice to have" |
-| **Blue Ocean** | Zero results on GitHub, Product Hunt, or any directory. Literally nobody has built this. | 2-3 small projects exist but none have traction (under 50 stars, abandoned) | Multiple well-maintained tools with active communities |
-| **"I Need This"** | You stop mid-research to think "wait, I actually want this for myself" | You can see why some people would use it | You have to explain why someone would want this |
-| **Useful in 60s** | `npx tool-name` and it works. No config, no signup, no API key. | Quick setup (clone, install, add one config value) then it works great | Requires accounts, API keys, database setup, or multi-step configuration |
-| **Catchy Name** | The name IS the pitch. Hearing it once = understanding + remembering it. ("Shazam", "Tinder") | Descriptive and clear but forgettable ("recipe-meal-planner") | Generic, confusing, or already taken ("utils", "helper", "my-tool") |
-| **Trend Alignment** | Directly enabled by something that launched this month; impossible 6 months ago | Relates to a broad ongoing trend (AI, remote work, creator economy) | No trend connection; could have been built 5 years ago |
-| **Shareability** | Produces output so good/funny/surprising people MUST share it. Screenshot-bait. | Produces useful output you might mention to a friend | Produces correct but boring output nobody would share |
-| **Moat** | Network effects, unique dataset, or "standard" status in a niche | First-mover advantage in an uncrowded space | Pure code — anyone could clone it in a weekend |
-| **Build Feasibility** | Single file, no dependencies, works in 2 hours | Weekend project, a few dependencies, clear architecture | Needs infrastructure, multiple services, or complex integrations |
-
-### Step 3d: Present Ideas
-
-For each of the top 3, present:
-
-```
-### [Rank]. [Name Idea]
-> [One-liner pitch — under 120 chars]
-
-**Scores:** Pain [X] × Blue Ocean [X] × Need [X] × Instant [X] × Name [X] × Trend [X] × Share [X] × Moat [X] × Build [X] = **[Total]/190**
-
-**The insight:** [Why this hasn't been built yet — what everyone missed]
-**Evidence:** [Links or search results proving the gap exists]
-**The share moment:** [What exact output someone would screenshot]
-**Cross-pollination source:** [If applicable — what inspired this from another domain]
-```
-
-Then ask: **"Pick one, combine ideas, or want me to explore a different direction?"**
-
-## Phase 4: Design the Winner
-
-Once the user picks an idea (or you pick the highest-scored one), generate the complete project.
-
-### 4a: The Name
-
-Generate 3-5 name candidates, then pick the best one. Strategies:
-- Transformative verbs: "turn X into Y", "anything-to-Z", "instant-X"
-- Catchy compound words: "FridgeFeast", "PlantDoctor", "PokeDraft"
-- Punny or clever: plays on words, domain-specific humor
-- Command-style: what you'd type to invoke it (good for CLIs)
-
-Requirements:
-- 1-3 words max
-- Must be memorable, Google-able, and available as a GitHub repo name
-- Test: would someone remember this name after hearing it once?
-
-**Collision detection (mandatory):** For each name candidate:
-1. Search GitHub for `{name}` — is the repo name taken?
-2. Search npm/PyPI for `{name}` — is the package name taken?
-3. Search the web for `"{name} app"` or `"{name} tool"` — is there a product with this name?
-4. If the best name is taken, try: add a prefix/suffix (`go-{name}`, `{name}-cli`, `{name}.sh`), use a creative misspelling, or pick the next candidate.
-
-Present the final name choice with collision check results: "Checked GitHub, npm, and web — name is clear."
-
-### 4b: The One-Liner
-
-- Under 120 characters
-- Creates immediate desire
-- Format: "[Action verb] [thing everyone has] into [thing everyone wants]"
-- This becomes the GitHub description, the tweet, and the first line of the README
-
-### 4c: The Complete Project
-
-Based on the best platform for the idea, generate ALL files needed for a working v1.
-
-**If it's an AI agent skill (SKILL.md):**
-- Proper frontmatter (name, description)
-- Clear system instructions that work across Claude Code, Codex, Cursor, OpenClaw, Gemini CLI, and any SKILL.md-compatible agent
-- Explicit tool usage — which tools the skill needs (web search, file read/write, bash, etc.) and when to use each
-- Step-by-step user interaction flow with example dialogue
-- Output format specifications with templates
-- Edge case handling — what to do when input is ambiguous, empty, or invalid
-
-**If it's a CLI tool / GitHub repo:**
-- Main source file(s) with complete, runnable code (not pseudocode, not stubs)
-- package.json / pyproject.toml / Cargo.toml with all dependencies
-- Clear entry point and CLI argument parsing
-- At least one working example you can run immediately after install
-
-**If it's a browser extension / web app / bot:**
-- manifest.json / index.html / bot config as appropriate
-- Core functionality fully implemented
-- UI styled and usable (not just unstyled HTML)
-
-**Always include:**
-- README.md (see 4d)
-- LICENSE (MIT)
-- .gitignore (appropriate for the language/platform)
-
-### 4d: The README.md
-
-Write a viral-optimized README following this exact structure:
-
-```markdown
-# [name]
-
-**[One-liner pitch]**
-
-[1-2 sentences expanding on what it does — written for someone who has 5 seconds to decide if they care]
-
-## Demo
-
-[Describe exactly what GIF/screenshot to capture, what the input and output should show, and why it's compelling. Be specific: "Record a 15-second GIF showing: paste a URL → watch it extract the recipe → output a meal plan. The 'wow' moment is when it generates the shopping list grouped by store aisle."]
-
-## Install
-
-[One command. If it takes more than one command, simplify the tool.]
-
-## Usage
-
-[3 examples that show range — simple case, power-user case, surprising case]
-
-## Why This Exists
-
-[2-3 sentences. Tie to the pain point. Make it relatable. "I got tired of..." or "Every time I tried to X, I had to Y. So I built this."]
-
-## How It Works
-
-[Brief technical explanation — 3-5 sentences max. Just enough to build trust.]
-
-## Compatible With
-
-[List platforms/environments]
-
-## License
-
-MIT
-```
-
-### 4e: Launch Strategy
-
-Generate a launch plan tailored to the specific idea and audience:
-
-**1. Launch posts (with templates):**
-- **Reddit** — Which specific subreddits, with a draft title and opening line for each. Different subs want different framing (technical vs. casual vs. "look what I built").
-- **Hacker News** — "Show HN: [name] — [one-liner]". Draft the top-level comment explaining the motivation.
-- **X/Twitter** — Draft a tweet thread: hook tweet, demo tweet (what to screenshot/GIF), "why I built this" tweet, call-to-action tweet.
-- **Niche communities** — Specific Discord servers, forums, Slack groups, or newsletters relevant to the domain.
-
-**2. The money screenshot:**
-- What exact input to use
-- What the output should look like
-- Why this specific example will make people stop scrolling
-
-**3. Directory submissions:**
-- Specific awesome-lists to PR into (with repo links)
-- Tool directories to submit to
-- Package registry listing (npm, PyPI, etc.)
-
-**4. Timing:**
-- Best day/time to post on each platform
-- Any upcoming events, releases, or cultural moments to tie into
-- Whether to stagger posts or launch everywhere simultaneously
-
-**5. Follow-up content (week 1-2):**
-- Blog post angle and suggested title
-- Video demo concept (under 60 seconds)
-- "V2 features" teaser to maintain momentum
+1. **Reddit** — 2-3 specific subreddits, draft title + body for each (different framing per sub)
+2. **HN** — "Show HN: [name] — [one-liner]" + draft top comment (humble, technical)
+3. **X/Twitter** — 4-tweet thread: hook, demo, why, CTA. Each under 280 chars.
+4. **Directories** — specific awesome-lists to PR into, registries to submit to
+5. **Timing** — best day/time per platform, events to tie into
 
 ## Phase 5: Ship & Share
 
-After building the project, ask the user:
-
-**"Ready to ship it? Pick where to launch:"**
-
-Then present these options as a menu:
+After building, ask: **"Ready to ship? Pick where:"**
 
 ```
-Where do you want to post this?
-
-1. GitHub — Create the repo, push the code, set topics & description
-2. Twitter/X — I'll write a viral tweet thread for you (hook → demo → CTA)
-3. Reddit — I'll draft posts for the best subreddits with the right framing
-4. Hacker News — I'll write your "Show HN" title + top-level comment
+1. GitHub — create repo, push code, set topics
+2. Twitter/X — viral tweet thread (ready to copy-paste)
+3. Reddit — posts for best subreddits (ready to copy-paste)
+4. Hacker News — Show HN post (ready to copy-paste)
 5. All of the above
-6. Skip — I'll just keep the files local
+6. Skip — keep files local
 ```
 
-For each platform the user picks, generate **ready-to-copy-paste content**:
+Generate ready-to-post content for each platform the user picks. All content in one go so they can launch everywhere simultaneously.
 
-**Twitter/X thread:**
-- Tweet 1: Hook — the "I can't believe nobody built this" moment. Lead with what it does, not what it is.
-- Tweet 2: Demo — describe the screenshot/GIF to capture. "Here's what happens when you [input] → [output]"
-- Tweet 3: Why — "I got tired of X, so I built Y. Took a weekend."
-- Tweet 4: CTA — "Star it / try it / tell me what to add next" + link
-- Keep each tweet under 280 chars. No hashtag spam (1-2 max). No emoji overload.
+For GitHub: offer to create the repo, push code, set description and topics using git/gh commands.
 
-**Reddit posts:**
-- Identify 2-3 specific subreddits (e.g., r/ClaudeAI, r/SideProject, r/webdev, plus domain-specific ones)
-- Different title and framing for each sub — technical subs want technical details, casual subs want the "wow" moment
-- Write the full post body for each
+## Phase 6: Iterate
 
-**Hacker News:**
-- "Show HN: [name] — [one-liner]"
-- Draft the top-level comment: motivation (2 sentences), what it does (2 sentences), what's next (1 sentence)
-- Keep it humble and technical — HN hates hype
+The user can say:
+- **"More like this"** — 3 more ideas, same direction
+- **"Combine X and Y"** — merge into hybrid
+- **"Same idea, different platform"** — CLI → extension, skill → web app
+- **"Pivot"** — same domain, different angle
+- **"Go deeper"** — second research pass with refined queries
 
-**GitHub:**
-- If the user wants, offer to create the repo, push code, set description and topics right now using git/gh commands.
+Always ready to loop back to any phase.
 
-The user can pick multiple platforms. Generate all the content in one go so they can launch everywhere simultaneously.
+## Rules
 
-## Phase 6: Iterate (Optional)
-
-If the user wants to refine:
-- **"More like this"** — Generate 3 more ideas in the same direction
-- **"Combine X and Y"** — Merge two ideas into a hybrid
-- **"Same idea, different platform"** — Redesign for a different platform (e.g., turn a CLI into a browser extension)
-- **"Pivot"** — Keep the domain but explore a completely different angle
-- **"Go deeper on the research"** — Do a second pass on Phase 2 with more specific queries based on what you've learned
-
-Always be ready to loop back to any phase.
-
-## Anti-Patterns — Ideas That Seem Good But Die
-
-Avoid these common traps that kill virality:
-
-1. **"Dashboard for X"** — Dashboards sound useful but nobody shares them. They require data integration, have no "wow" moment, and compete with everything. Unless the dashboard itself produces something screenshot-worthy, skip it.
-
-2. **"AI wrapper with no unique angle"** — "ChatGPT but for {domain}" is not an idea. Everyone has this idea. The wrapper must do something the raw model can't: use a specific dataset, enforce a specific workflow, produce a specific output format, or integrate with a specific tool.
-
-3. **"Aggregator/curator"** — "All the best {X} in one place" requires constant maintenance, has no moat, and is boring. The only exception is if the curation itself is the product (e.g., a unique ranking algorithm or visualization).
-
-4. **"Yet another todo/note/bookmark app"** — These categories have 10,000+ entries. You need a genuinely novel angle (not just "but simpler" or "but with AI").
-
-5. **"Requires behavior change"** — Tools that need users to adopt a new daily habit almost always fail. The best tools slot into existing workflows or are used once for a specific need.
-
-6. **"Requires a large user base to be useful"** — Anything that needs network effects to work (social features, marketplaces, collaborative tools) is nearly impossible to bootstrap as a solo project.
-
-7. **"Solves a problem only the builder has"** — If you can't find anyone else complaining about this, it might be a personal itch, not a market gap.
-
-8. **"Too broad to be catchy"** — "Productivity toolkit" means nothing. "Turn your git history into a resume" is instantly shareable.
-
-If an idea triggers any of these anti-patterns, either pivot it to avoid the trap or drop it.
-
-## Important Rules
-
-- **NEVER suggest something that already has a popular implementation.** Step 3b (validation) is mandatory, not optional. If you can't search, caveat your recommendations clearly.
-- **Show your work.** When you say something doesn't exist, cite the searches you ran. "I searched GitHub for X, Y, Z and found nothing" is 10x more convincing than "this doesn't exist."
-- Prioritize ideas where you can say "I can't believe nobody built this yet"
-- The best ideas make the user feel clever for finding them
-- Simple > Complex. A brilliant single-file tool beats a mediocre framework.
-- The name matters as much as the product itself. Spend real time on it.
-- If the user's domain is saturated, pivot toward an adjacent unexplored angle rather than competing head-on
-- Think beyond developers — the most viral tools often serve non-technical audiences
-- Cultural specificity can be a superpower — a tool perfectly tailored to one community beats a generic tool for everyone
-- Generate real, complete, runnable code — not pseudocode or "TODO: implement this". The user should be able to publish what you generate.
-- When in auto-discovery mode, bias toward ideas that are fun and surprising over ideas that are practical and boring. Boring tools don't go viral.
+- **Validate before recommending.** Search first. Cite your searches. No hallucinated gaps.
+- **Simple > Complex.** Single-file tool beats mediocre framework.
+- **Name matters as much as the product.** Spend real time on it.
+- **Think beyond developers.** Viral tools often serve non-technical audiences.
+- **Cultural specificity is a superpower.** A tool for one community beats a generic tool for everyone.
+- **Fun > boring in auto-discovery mode.** Boring doesn't go viral.
+- **Complete, runnable code only.** The user should be able to publish what you generate immediately.
