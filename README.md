@@ -57,21 +57,16 @@ cp SKILL.md ~/.claude/skills/nobodybuilt.md
 ## Usage
 
 ```
-# Guided — tell it what excites you
-Use nobodybuilt. I'm into cooking and meal prep.
-
-# Auto-discovery — let it surprise you
-Use nobodybuilt. Surprise me with the most viral unexplored idea right now.
-
-# Niche-specific
-Use nobodybuilt. Find a tool for Pokemon fans that would blow up on Twitter.
-
-# Platform-specific
-Use nobodybuilt. Find me a Chrome extension idea that doesn't exist yet.
-
-# Iterate
-Combine idea 1 and 3.  /  More like idea 2.  /  Same idea but as a CLI.
+Use nobodybuilt. I'm into cooking.
 ```
+```
+Use nobodybuilt. Pokemon.
+```
+```
+Use nobodybuilt. Surprise me.
+```
+
+That's it. One word is enough. It figures out the audience, platform, and vibe automatically. After it builds your project, it asks where you want to launch — Twitter, Reddit, Hacker News, GitHub — and writes ready-to-post content for each.
 
 ## How It Works
 
@@ -82,27 +77,24 @@ You say "cooking"
         │
         ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PHASE 1  Creative Ideation                                 │
-│  Mashup, Annoyance Autopsy, What-If, Audience Flip,         │
-│  Format Shift → 15-20 raw idea fragments                    │
+│  IDEATE   5 creative frameworks → 15-20 raw ideas           │
 └──────────────────────────┬──────────────────────────────────┘
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PHASE 2  Deep Research                                     │
-│  GitHub, Product Hunt, Reddit, npm, Chrome Web Store,       │
-│  AI directories, niche platforms → map what exists           │
+│  RESEARCH  GitHub, Reddit, PH, npm, AI dirs → map gaps      │
 └──────────────────────────┬──────────────────────────────────┘
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PHASE 3  Validate & Score                                  │
-│  Demand proof (Reddit wishlists, manual workarounds)         │
-│  Anti-pattern filter → 9-factor scoring → Top 3             │
+│  VALIDATE  Demand proof + anti-pattern filter → Top 3       │
 └──────────────────────────┬──────────────────────────────────┘
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  PHASE 4  Build the Winner                                  │
-│  Name (collision-checked) + working code + viral README +   │
-│  launch strategy with draft posts for Reddit, HN, X         │
+│  BUILD    Name + code + README + launch strategy             │
+└──────────────────────────┬──────────────────────────────────┘
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│  SHIP     "Where to launch?" → Twitter, Reddit, HN, GitHub  │
+│           Generates ready-to-post content for each platform  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -130,6 +122,7 @@ Then it generates the complete project — SKILL.md, README, code, and a launch 
 | **Complete code** | Working v1 — SKILL.md, CLI, extension, or web app. Not stubs. Runnable. |
 | **Viral README** | Hook-first, one-command install, 3 usage examples, "why this exists" |
 | **Launch strategy** | Draft posts for Reddit/HN/X, directory submissions, timing advice |
+| **Ready-to-post content** | Pick Twitter, Reddit, HN, or GitHub — get copy-paste launch content |
 
 ## Scoring System
 
