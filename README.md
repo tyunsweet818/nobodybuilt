@@ -113,7 +113,18 @@ Use nobodybuilt. Pokemon.
 Use nobodybuilt. Surprise me.
 ```
 
-That's it. One word is enough. It figures out the audience, platform, and vibe automatically. After it builds your project, it asks where you want to launch — Twitter, Reddit, Hacker News, GitHub — and writes ready-to-post content for each.
+Or send an image:
+```
+Use nobodybuilt. [screenshot of an app] — find gaps in this space.
+```
+```
+Use nobodybuilt. [photo of messy desk] — what tool would fix this?
+```
+```
+Use nobodybuilt. [screenshot of a Reddit "I wish..." post]
+```
+
+Text or image — one input is enough. It figures out the domain, audience, platform, and vibe automatically. After it builds your project, it asks where you want to launch — GitHub, skill marketplaces, Twitter, Reddit, HN — and writes ready-to-post content for each.
 
 ## How It Works
 

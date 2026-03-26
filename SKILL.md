@@ -1,6 +1,6 @@
 ---
 name: nobodybuilt
-description: "Use this skill when the user wants to find unexplored tool, app, or project ideas that nobody has built yet. Triggers: 'nobodybuilt', 'find me an idea', 'what should I build', 'viral tool idea', 'unexplored niche', 'blue ocean', 'surprise me with an idea', 'what hasn't been built yet'. Searches GitHub, Reddit, Product Hunt, npm, and AI directories for real gaps, scores ideas on 9 viral factors, then generates complete publish-ready code + README + launch strategy. Do NOT use for: building a specific tool the user already has in mind, code review, debugging, or general brainstorming unrelated to tool/product discovery."
+description: "Use this skill when the user wants to find unexplored tool, app, or project ideas that nobody has built yet. Triggers: 'nobodybuilt', 'find me an idea', 'what should I build', 'viral tool idea', 'unexplored niche', 'blue ocean', 'surprise me with an idea', 'what hasn't been built yet', or when the user sends a screenshot/photo asking for tool ideas. Accepts text or images as input — analyzes screenshots of apps, photos of real-world problems, or Reddit/Twitter posts to identify gaps. Searches GitHub, Reddit, Product Hunt, npm, and AI directories for real gaps, scores ideas on 9 viral factors, then generates complete publish-ready code + README + launch strategy. Do NOT use for: building a specific tool the user already has in mind, code review, debugging, or general brainstorming unrelated to tool/product discovery."
 ---
 
 # nobodybuilt — Find What Nobody Has Built Yet
@@ -26,12 +26,20 @@ Ask ONE question: **"What area are you into? (or say 'surprise me')"**
 
 That's it. The user says "cooking" or "Pokemon" or "fitness" or "surprise me" — and you go.
 
+**The user can also send an image instead of text.** If they send:
+- A **screenshot of an app/tool** → analyze what it does, find gaps in that space, build something better or adjacent
+- A **photo of a real-world problem** → identify the pain point, find if a tool exists to solve it, build one if not
+- A **screenshot of a Reddit/Twitter post** → extract the "I wish this existed" request and run with it
+- A **photo of anything** → use it as creative inspiration for the domain
+
+When the user sends an image, analyze it and infer the domain from what you see. Don't ask "what is this?" — describe what you see and start working.
+
 Infer automatically:
 - **Audience** — most natural for the domain. Non-technical by default unless domain is technical.
 - **Platform** — whatever fits best. Decide in Phase 4.
 - **Vibe** — match the domain. Fun domains → playful. Professional → clean.
 
-If the user already gave a domain in their message, don't ask — start Phase 2 immediately.
+If the user already gave a domain in their message (text or image), don't ask — start Phase 2 immediately.
 
 ## Phase 2: Ideate + Research
 
@@ -151,7 +159,7 @@ Under 120 chars. Format: "[Verb] [thing everyone has] into [thing everyone wants
 
 Generate ALL files for a working v1. Not stubs. Runnable.
 
-**Skill (SKILL.md):** Frontmatter + instructions + tool usage + interaction flow + output templates + edge cases. Follow the Agent Skills spec: name max 64 chars, lowercase+hyphens, description says what AND when.
+**Skill (SKILL.md):** Frontmatter + instructions + tool usage + interaction flow + output templates + edge cases. Follow the Agent Skills spec: name max 64 chars, lowercase+hyphens, description says what AND when. If the skill can benefit from image/screenshot input, make it multimodal — include instructions for analyzing images (what to look for, how to extract info, how to respond). Many of the best skills accept both text and images.
 
 **CLI:** Source files + package config + entry point + one working example post-install.
 
